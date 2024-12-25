@@ -7,10 +7,14 @@ import Colors from "@/constants/Colors"; // Assuming you have this for styling
 const MenuStack = () => {
   const router = useRouter();
 
-  const handlePress = () => {
-    // console.log("Cart icon pressed");
-    router.push("/");
-  };
+
+  const handleAddPress = ()=>{
+    router.push('/(admin)/menu/create');
+  }  
+
+  const handleEditPress = ()=>{
+    router.push('/(admin)/menu');
+  }
 
   return (
     <Stack>
@@ -40,7 +44,7 @@ const MenuStack = () => {
               {/* Menu text in the header */}
               <Text style={{ fontSize: 20, color: "#333" }}>Menu</Text>
 
-              <TouchableOpacity onPress={handlePress} style={{ paddingRight: 10 }}>
+              <TouchableOpacity onPress={handleAddPress} style={{ paddingRight: 10 }}>
                 <FontAwesome
                   name="plus-square-o" // Cart icon
                   size={25}
@@ -79,7 +83,7 @@ const MenuStack = () => {
               {/* Menu text in the header */}
               <Text style={{ fontSize: 20, color: "#333" }}>Menu</Text>
 
-              <TouchableOpacity onPress={handlePress} style={{ paddingRight: 10 }}>
+              <TouchableOpacity onPress={handleEditPress} style={{ paddingRight: 10 }}>
                 <FontAwesome
                   name="pencil" // Cart icon
                   size={25}
