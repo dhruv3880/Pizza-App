@@ -12,8 +12,8 @@ const CreateProductScreen = () => {
     const [price, setPrice] = useState('');
     const [errors, setErrors] = useState('');
     const [image, setImage] = useState('');
-    const {id} = useLocalSearchParams();
-    const isUpdating = !!id; 
+    const { id } = useLocalSearchParams();
+    const isUpdating = !!id;
 
     const resetFields = () => {
         setName('');
@@ -56,9 +56,9 @@ const CreateProductScreen = () => {
     };
 
     const onSubmit = () => {
-        if(isUpdating){
+        if (isUpdating) {
             onUpdate();
-        }else{
+        } else {
             onCreate();
         }
     };
@@ -88,21 +88,21 @@ const CreateProductScreen = () => {
     };
 
     const confirmDelete = () => {
-        Alert.alert("Confirm","Are you sure \nYou want to delete?", [{
-            text:'Cancel',
+        Alert.alert("Confirm", "Are you sure \nYou want to delete?", [{
+            text: 'Cancel',
         },
-    {
-        text:'Delete',
-        style:'destructive',
-        onPress: onDelete,
-    },
-    ]);
+        {
+            text: 'Delete',
+            style: 'destructive',
+            onPress: onDelete,
+        },
+        ]);
     };
 
 
     return (
         <View style={styles.container}>
-            <Stack.Screen options={{title: isUpdating ? "Update Product": "Create Product"}}/>
+            <Stack.Screen options={{ title: isUpdating ? "Update Product" : "Create Product" }} />
 
 
             <Image source={{ uri: image || defaultPizzaImage }} style={styles.image} />
@@ -120,7 +120,7 @@ const CreateProductScreen = () => {
                 style={styles.input} keyboardType='numeric' />
 
             <Text style={{ color: 'red' }}>{errors}</Text>
-            <Button onPress={onSubmit} text={isUpdating?'Update':'Create' }/>
+            <Button onPress={onSubmit} text={isUpdating ? 'Update' : 'Create'} />
             {isUpdating && <Text onPress={confirmDelete} style={styles.imgBtn}>Delete</Text>}
         </View>
     )
